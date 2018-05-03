@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>$id$</id>
+        <id>D2dControl-Custom</id>
         <version>$version$</version>
-        <authors>$author$</authors>
-        <projectUrl>https://github.com/dalance/D2dControl</projectUrl>
+        <authors>Dalance, Sewer56</authors>
+        <projectUrl>https://github.com/sewer56lol/D2dControl</projectUrl>
         <licenseUrl>https://raw.githubusercontent.com/dalance/D2dControl/master/LICENSE</licenseUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>A modified version of D2DControl for use by libReloaded, a component of Reloaded Mod Loader.</description>
         <dependencies>
             <dependency id="SharpDX" version="3.0.0" />
             <dependency id="SharpDX.Direct2D1" version="3.0.0" />
