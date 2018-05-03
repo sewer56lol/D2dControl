@@ -14,6 +14,7 @@ namespace Sample {
         private float dy = 1;
 
         private Random rnd = new Random();
+        
 
         public SampleControl() {
             resCache.Add( "RedBrush"  , t => new SolidColorBrush( t, new RawColor4( 1.0f, 0.0f, 0.0f, 1.0f ) ) );
