@@ -37,6 +37,7 @@ namespace D2dControl {
         }
 
         public float FrameRate { get; set; } = 60F;
+        public bool LimitFramerate { get; set; } = true;
 
         // - public methods --------------------------------------------------------------
 
@@ -101,24 +102,27 @@ namespace D2dControl {
         /// </summary>
         private void SleepFrameRate()
         {
-            // Calculate time for 1 frame.
-            float sleepMilliseconds = 1000F / FrameRate;
+            if (LimitFramerate)
+            {
+                // Calculate time for 1 frame.
+                float sleepMilliseconds = 1000F / FrameRate;
 
-            // Calculate time to Thread.Sleep (round down to nearest millisecond)
-            int threadSleepMilliseconds = (int)sleepMilliseconds;
+                // Calculate time to Thread.Sleep (round down to nearest millisecond)
+                int threadSleepMilliseconds = (int)sleepMilliseconds;
 
-            // Go down another millisecond if not 0.
-            if (threadSleepMilliseconds >= 3) { threadSleepMilliseconds -= 3; }
+                // Go down another millisecond if not 0.
+                if (threadSleepMilliseconds >= 3) { threadSleepMilliseconds -= 3; }
 
-            // Sleep the thread.
-            Thread.Sleep(threadSleepMilliseconds);
+                // Sleep the thread.
+                Thread.Sleep(threadSleepMilliseconds);
 
-            // Stall with while loop
-            while (renderTimer.Elapsed.TotalMilliseconds < sleepMilliseconds)
-            { }
+                // Stall with while loop
+                while (renderTimer.Elapsed.TotalMilliseconds < sleepMilliseconds)
+                { }
 
-            // Reset stopwatch.
-            renderTimer.Restart();
+                // Reset stopwatch.
+                renderTimer.Restart();
+            }
         }
 
         private void StartD3D() {
